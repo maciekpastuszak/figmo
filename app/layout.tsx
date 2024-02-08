@@ -10,7 +10,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Figmo Śląsko",
+  title: "Figmo po Ślonsko",
   description: "Minimalistyczny klon Figmy z użyciem Fabris.js i Liveblocks",
 };
 
