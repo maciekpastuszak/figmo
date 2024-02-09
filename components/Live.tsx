@@ -17,6 +17,15 @@ const Live = () => {
     },
     [],
   )
+
+  const handlePointerLeave = useCallback(
+    (event: React.PointerEvent) => {
+      event?.preventDefault();
+
+      updateMyPresence({cursor: null, message: null});
+    },
+    [],
+  )
   
 
   return (
