@@ -1,10 +1,16 @@
 import { useMyPresence, useOthers } from "@/liveblocks.config"
 import LiveCursors from "./cursor/LiveCursors"
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import CursorChat from "./cursor/CursorChat";
+import { CursorMode } from "@/types/type";
 
 const Live = () => {
   const others = useOthers();
   const [{ cursor }, updateMyPresence] = useMyPresence() as any;
+
+  const [cursorState, setCursorState] = useState({
+    mode: CursorMode.Hidden,
+  })
 
   const handlePointerMove = useCallback(
     (event: React.PointerEvent) => {
@@ -37,7 +43,6 @@ const Live = () => {
     },
     [],
   )
-  
 
   return (
     <div
@@ -47,6 +52,13 @@ const Live = () => {
       className="h-[100vh] w-full flex justify-center items-center text-center"
     >
       <h1 className="text-2xl text-white">Figmo</h1>
+      
+      {cursor && (
+        <CursorChat 
+          cursor={cursor}
+        />
+      )}
+
       <LiveCursors others={others}/>
     </div>
   )
