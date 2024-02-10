@@ -40,7 +40,12 @@ const Live = () => {
   
 
   return (
-    <div>
+    <div
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      onPointerDown={handlePointerDown}
+      className="border-5 border-green-500"
+    >
       <LiveCursors others={others}/>
     </div>
   )
