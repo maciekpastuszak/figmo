@@ -44,8 +44,9 @@ const Live = () => {
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       onPointerDown={handlePointerDown}
-      className="border-5 border-green-500"
+      className="h-[100vh] w-full flex justify-center items-center text-center"
     >
+      <h1 className="text-2xl text-white">Figmo</h1>
       <LiveCursors others={others}/>
     </div>
   )
