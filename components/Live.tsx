@@ -26,8 +26,7 @@ const Live = () => {
 
   const handlePointerLeave = useCallback(
     (event: React.PointerEvent) => {
-      event?.preventDefault();
-
+      setCursorState({ mode: CursorMode.Hidden })
       updateMyPresence({cursor: null, message: null});
     },
     [],
@@ -56,6 +55,9 @@ const Live = () => {
       {cursor && (
         <CursorChat 
           cursor={cursor}
+          cursororState={cursorState}
+          setCursorState={setCursorState}
+          updateMyPresence={updateMyPresence}
         />
       )}
 
