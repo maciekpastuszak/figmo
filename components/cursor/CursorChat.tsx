@@ -4,7 +4,12 @@ import { CursorChatProps, CursorMode } from '@/types/type'
 
 const CursorChat = ({ cursor, cursorState, setCursorState, updateMyPresence }: CursorChatProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-
+    updateMyPresence({ message: e.target.value });
+    setCursorState({
+      mode: CursorMode.Chat,
+      previousMessage: null,
+      message: e.target.value,  
+    })
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
