@@ -1,9 +1,13 @@
-import { CursorChatProps } from '@/types/type'
-import React from 'react'
+import { CursorChatProps, CursorMode } from '@/types/type'
 
 const CursorChat = ({ cursor, cursorState, setCursorState, updateMyPresence }: CursorChatProps) => {
   return (
-    <div>CursorChat</div>
+    <div className="absolute top-0 left-0" style={{ transform: `translatex(${cursor.x}px) translateY(${cursor.y}px)`}}>
+      {cursorState.mode === CursorMode.Chat && (
+      <>
+      </>
+      )}
+    </div>
   )
 }
 
