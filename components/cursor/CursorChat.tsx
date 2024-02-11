@@ -12,7 +12,7 @@ const CursorChat = ({ cursor, cursorState, setCursorState, updateMyPresence }: C
   }
   
   return (
-    <div className="absolute top-0 left-0" style={{ transform: `translatex(${cursor.x}px) translateY(${cursor.y}px)`}}>
+    <div className="absolute top-0 left-0" style={{ transform: `translateX(${cursor.x}px) translateY(${cursor.y}px)`}}>
         <>
           <CursorSVG color="#000" />
 
