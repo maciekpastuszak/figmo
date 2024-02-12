@@ -1,6 +1,6 @@
 import { useMyPresence, useOthers } from "@/liveblocks.config"
 import LiveCursors from "./cursor/LiveCursors"
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CursorChat from "./cursor/CursorChat";
 import { CursorMode } from "@/types/type";
 
@@ -42,6 +42,15 @@ const Live = () => {
     },
     [],
   )
+
+  useEffect(() => {
+    const onKeyUp = (e: KeyboardEvent) => {
+      
+    }
+  
+    const onKeyDonw = (e: KeyboardEvent) => {}
+  }, [])
+  
 
   return (
     <div
