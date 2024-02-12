@@ -45,7 +45,16 @@ const Live = () => {
 
   useEffect(() => {
     const onKeyUp = (e: KeyboardEvent) => {
-      
+      if (e.key === '/') {
+        setCursorState({
+          mode: CursorMode.Chat,
+          previousMessage: null,
+          message: ''
+        })
+      } else if (e.key === 'Escape') {
+        updateMyPresence({ message: ''})
+        setCursorState({ mode: CursorMode.Hidden})
+      }
     }
   
     const onKeyDonw = (e: KeyboardEvent) => {}
