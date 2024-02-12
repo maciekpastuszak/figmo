@@ -57,7 +57,7 @@ const Live = () => {
       }
     }
   
-    const onKeyDonw = (e: KeyboardEvent) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       if(e.key === '/') {
         e.preventDefault();
       }
