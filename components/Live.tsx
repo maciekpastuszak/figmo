@@ -85,7 +85,7 @@ const Live = () => {
       {cursor && (
         <CursorChat 
           cursor={cursor}
-          cursororState={cursorState}
+          cursorState={cursorState}
           setCursorState={setCursorState}
           updateMyPresence={updateMyPresence}
         />
