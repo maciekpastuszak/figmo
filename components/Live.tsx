@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import CursorChat from "./cursor/CursorChat";
 import { CursorMode, CursorState, Reaction } from "@/types/type";
 import ReactionSelector from "./reaction/ReactionButton";
+import FlyingReaction from "./reaction/FlyingReaction";
 
 const Live = () => {
   const others = useOthers();
@@ -94,7 +95,7 @@ const Live = () => {
   const setReactions = useCallback((reaction: string) => {
     setCursorState({ mode: CursorMode.Reaction, reaction, isPressed: false})
   }, []);
-  
+
   return (
     <div
       onPointerMove={handlePointerMove}
@@ -104,6 +105,16 @@ const Live = () => {
       className="h-[100vh] w-full flex justify-center items-center text-center"
     >
       <h1 className="text-2xl text-white">Figmo</h1>
+
+      {reaction.map((r) => (
+        <FlyingReaction 
+          key={r.timestamp.toString()}
+          x={r.point.x}
+          y={r.point.y}
+          timestamp={r.timestamp}
+          value={r.value}
+        />
+      ))}
       
       {cursor && (
         <CursorChat 
