@@ -40,7 +40,7 @@ const Live = () => {
 
   const handlePointerUp = useCallback((event: React.PointerEvent) => {
     setCursorState((state: CursorState) => 
-    cursoState.mode === CursorMode.React ? 
+    cursorState.mode === CursorMode.React ? 
     {...StaticRange, isPressed: true } : state
     );
   }, [cursorState.mode, setCursorState])
@@ -54,7 +54,7 @@ const Live = () => {
       updateMyPresence({cursor: { x, y }});
 
       setCursorState((state: CursorState) => 
-        cursoState.mode === CursorMode.React ? 
+        cursorState.mode === CursorMode.React ? 
         {...StaticRange, isPressed: true } : state
         );
     }, [cursorState.mode, setCursorState])
