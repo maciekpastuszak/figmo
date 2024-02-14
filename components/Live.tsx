@@ -2,7 +2,7 @@ import { useMyPresence, useOthers } from "@/liveblocks.config"
 import LiveCursors from "./cursor/LiveCursors"
 import { useCallback, useEffect, useState } from "react";
 import CursorChat from "./cursor/CursorChat";
-import { CursorMode, Reaction } from "@/types/type";
+import { CursorMode, CursorState, Reaction } from "@/types/type";
 import ReactionSelector from "./reaction/ReactionButton";
 
 const Live = () => {
@@ -44,9 +44,13 @@ const Live = () => {
       const y = event.clientY - event.currentTarget.getBoundingClientRect().y;
 
       updateMyPresence({cursor: { x, y }});
+
+      setCursorState((state: CursorState) => 
+        cursoState.mode === CursorMode.React ? 
+        {...StaticRange, isPressed: true } : state
+        );
     },
-    [],
-  )
+    [])
 
   useEffect(() => {
     const onKeyUp = (e: KeyboardEvent) => {
