@@ -9,7 +9,7 @@ const Live = () => {
   const others = useOthers();
   const [{ cursor }, updateMyPresence] = useMyPresence() as any;
 
-  const [cursorState, setCursorState] = useState({
+  const [cursorState, setCursorState] = useState<CursorState>({
     mode: CursorMode.Hidden,
   })
 
