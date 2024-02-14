@@ -37,6 +37,13 @@ const Live = () => {
     [],
   )
 
+  const handlePointerUp = useCallback((event: React.PointerEvent) => {
+    setCursorState((state: CursorState) => 
+    cursoState.mode === CursorMode.React ? 
+    {...StaticRange, isPressed: true } : state
+    );
+  }, [])
+
   const handlePointerDown = useCallback(
     (event: React.PointerEvent) => {
 
@@ -91,6 +98,7 @@ const Live = () => {
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
       className="h-[100vh] w-full flex justify-center items-center text-center"
     >
       <h1 className="text-2xl text-white">Figmo</h1>
