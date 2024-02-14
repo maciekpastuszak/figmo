@@ -19,10 +19,12 @@ const Live = () => {
     (event: React.PointerEvent) => {
       event?.preventDefault();
 
-      const x = event.clientX - event.currentTarget.getBoundingClientRect().x;
-      const y = event.clientY - event.currentTarget.getBoundingClientRect().y;
-
-      updateMyPresence({cursor: { x, y }});
+      if(cursor == null || cursorState.mode !== CursorMode.ReactionSelector) {
+        const x = event.clientX - event.currentTarget.getBoundingClientRect().x;
+        const y = event.clientY - event.currentTarget.getBoundingClientRect().y;
+  
+        updateMyPresence({cursor: { x, y }});
+      }
     },
     [],
   )
@@ -57,6 +59,10 @@ const Live = () => {
       } else if (e.key === 'Escape') {
         updateMyPresence({ message: ''})
         setCursorState({ mode: CursorMode.Hidden})
+      } else if (e.key === 'e') {
+        setCursorState({
+          mode: CursorMode.ReactionSelector,
+        })
       }
     }
   
