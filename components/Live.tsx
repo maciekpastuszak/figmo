@@ -42,7 +42,7 @@ const Live = () => {
     cursoState.mode === CursorMode.React ? 
     {...StaticRange, isPressed: true } : state
     );
-  }, [])
+  }, [cursorState.mode, setCursorState])
 
   const handlePointerDown = useCallback(
     (event: React.PointerEvent) => {
@@ -56,8 +56,7 @@ const Live = () => {
         cursoState.mode === CursorMode.React ? 
         {...StaticRange, isPressed: true } : state
         );
-    },
-    [])
+    }, [cursorState.mode, setCursorState])
 
   useEffect(() => {
     const onKeyUp = (e: KeyboardEvent) => {
