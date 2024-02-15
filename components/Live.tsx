@@ -43,7 +43,7 @@ const Live = () => {
     setReaction((reactions) =>
         reactions.concat([
           {
-            point: { x: cursor.x, y: cursor.y },
+            point: { x: event.x, y: event.y },
             value: event.value,
             timestamp: Date.now(),
           },
