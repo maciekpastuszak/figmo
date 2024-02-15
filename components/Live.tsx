@@ -19,16 +19,14 @@ const Live = () => {
 
   useInterval(() => {
     if (cursorState.mode === CursorMode.Reaction && cursorState.isPressed && cursor) {
-      // concat all the reactions created on mouse click
-      setReactions((reactions) =>
+      setReaction((reactions) =>
         reactions.concat([
           {
             point: { x: cursor.x, y: cursor.y },
             value: cursorState.reaction,
             timestamp: Date.now(),
           },
-        ])
-      );
+        ]))
     }
   }, 100);
 
@@ -109,7 +107,7 @@ const Live = () => {
   }, [updateMyPresence])
   
   const setReactions = useCallback((reaction: string) => {
-    setCursorState({ mode: CursorMode.Reaction, reaction, isPressed: false})
+    setCursorState({ mode: CursorMode.Reaction, reaction, isPressed: false });
   }, []);
 
   return (
