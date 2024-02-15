@@ -52,12 +52,11 @@ const Live = () => {
     [],
   )
 
-  const handlePointerUp = useCallback((event: React.PointerEvent) => {
-    setCursorState((state: CursorState) => 
-    cursorState.mode === CursorMode.React ? 
-    {...StaticRange, isPressed: true } : state
+  const handlePointerUp = useCallback(() => {
+    setCursorState((state: CursorState) =>
+      cursorState.mode === CursorMode.Reaction ? { ...state, isPressed: false } : state
     );
-  }, [cursorState.mode, setCursorState])
+  }, [cursorState.mode, setCursorState]);
 
   const handlePointerDown = useCallback(
     (event: React.PointerEvent) => {
@@ -67,11 +66,12 @@ const Live = () => {
 
       updateMyPresence({cursor: { x, y }});
 
-      setCursorState((state: CursorState) => 
-        cursorState.mode === CursorMode.React ? 
-        {...StaticRange, isPressed: true } : state
-        );
-    }, [cursorState.mode, setCursorState])
+      setCursorState((state: CursorState) =>
+        cursorState.mode === CursorMode.Reaction ? { ...state, isPressed: true } : state
+      );
+    },
+    [cursorState.mode, setCursorState]
+  );
 
   useEffect(() => {
     const onKeyUp = (e: KeyboardEvent) => {
