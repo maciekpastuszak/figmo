@@ -1,3 +1,6 @@
+import { useOthers, useSelf } from "@/liveblocks.config";
+import { Avatar } from "./Avatar";
+
 const ActiveUsers = () => {
     const users = useOthers();
     const currentUser = useSelf();
@@ -23,3 +26,5 @@ const ActiveUsers = () => {
       </main>
     );
   }
+
+  export default ActiveUsers
