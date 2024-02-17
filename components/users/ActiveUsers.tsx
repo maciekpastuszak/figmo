@@ -20,9 +20,7 @@ const ActiveUsers = () => {
           {hasMoreUsers && <div className={styles.more}>+{users.length - 3}</div>}
   
           {currentUser && (
-            <div className="relative ml-8 first:ml-0">
-              <Avatar src={currentUser.info.avatar} name="You" />
-            </div>
+            <Avatar src={currentUser.info.avatar} name="You" />
           )}
         </div>
       </main>
