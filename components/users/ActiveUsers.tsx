@@ -11,6 +11,11 @@ const ActiveUsers = () => {
     return (
       <main className="flex h-screen w-full select-none place-content-center place-items-center">
         <div className="flex pl-3">
+
+        {currentUser && (
+            <Avatar name="You" otherStyles="border-[3px] border-primary-green" />
+          )}
+          
           {users.slice(0, 3).map(({ connectionId, info }) => {
             return (
               <Avatar key={connectionId} src={info.avatar} name={info.name} />
@@ -19,9 +24,7 @@ const ActiveUsers = () => {
   
           {hasMoreUsers && <div className={styles.more}>+{users.length - 3}</div>}
   
-          {currentUser && (
-            <Avatar src={currentUser.info.avatar} name="You" />
-          )}
+          
         </div>
       </main>
     );
