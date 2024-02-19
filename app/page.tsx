@@ -6,9 +6,11 @@ import Navbar from "@/components/Navbar";
 
 export default function Page() {
   return (
-    <div>
-      <Navbar />
+    <main className="h-screen overflow-hidden">
+      <section>
+        <Navbar />
+      </section>
       <Live />
-    </div>
+    </main>
   );
 }

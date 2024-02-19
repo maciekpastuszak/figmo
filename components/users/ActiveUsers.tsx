@@ -10,7 +10,7 @@ const ActiveUsers = () => {
     const hasMoreUsers = users.length > 3;
   
     return (
-      <main className="flex h-screen w-full select-none place-content-center place-items-center">
+      <main className="flex w-full select-none place-content-center place-items-center">
         <div className="flex pl-3">
         {currentUser && (
             <Avatar name="You" otherStyles="border-[3px] border-primary-green" />
