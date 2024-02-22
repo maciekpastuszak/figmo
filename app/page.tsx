@@ -15,10 +15,13 @@ export default function Page() {
   const fabricRef = useRef<fabric.Canvas | null>(null);
   const isDrawing = useRef(false);
   const shapeRef = useRef<fabric.Object | null>(null);
-  const selectedShapeRef = useRef<string | null>(null);
+  const selectedShapeRef = useRef<string | null>('rectangle');
 
   useEffect(() => {
-    const canvas = initializeFabric({ canvasRef, fabricRef })
+    const canvas = initializeFabric({
+      canvasRef,
+      fabricRef,
+    });
 
     canvas.on("mouse:down", (options) => {
       handleCanvasMouseDown({
@@ -26,13 +29,13 @@ export default function Page() {
         canvas,
         isDrawing,
         shapeRef,
-        selectedShapeRef
+        selectedShapeRef,
       })
+    })
 
       window.addEventListener("resize", () => {
         handleResize({ fabricRef })
       })
-    })
   }, [])
 
   return (

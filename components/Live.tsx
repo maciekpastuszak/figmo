@@ -5,7 +5,8 @@ import CursorChat from "./cursor/CursorChat";
 import { CursorMode, CursorState, Reaction, ReactionEvent } from "@/types/type";
 import ReactionSelector from "./reaction/ReactionButton";
 import FlyingReaction from "./reaction/FlyingReaction";
-import useInterval from "@/hooks/
+import useInterval from "@/hooks/useInterval";
+
 
 type Props = {
   canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
