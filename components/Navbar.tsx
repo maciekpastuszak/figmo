@@ -19,8 +19,18 @@ const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveE
       
       <ul className="flex flex-row">
         {navElements.map((item: ActiveElement | any) => (
-          <li>
-            
+          <li
+            key={item.name}
+          >
+            {Array.isArray(item.value) ? (
+              <ShapesMenu />
+            ): item?.value === 'comments' ? (
+              <NewThread>
+
+              </NewThread>
+            ): (
+              <button></button>
+            )}
           </li>
         ))}
       </ul>
