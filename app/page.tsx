@@ -6,8 +6,8 @@ import { Room } from "./Room";
 import Navbar from "@/components/Navbar";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
-import { useEffect, useRef } from "react";
-import { CustomFabricObject } from "@/types/type";
+import { useEffect, useRef, useState } from "react";
+import { CustomFabricObject, ActiveElement } from "@/types/type";
 import { handleCanvasMouseDown, handleResize, initializeFabric } from "@/lib/canvas";
 
 export default function Page() {
@@ -16,6 +16,12 @@ export default function Page() {
   const isDrawing = useRef(false);
   const shapeRef = useRef<fabric.Object | null>(null);
   const selectedShapeRef = useRef<string | null>('rectangle');
+
+  const [activeElement, setActiveElement] = useState<ActiveElement>({
+    name: '',
+    value: '',
+    icon: ''
+  })
 
   useEffect(() => {
     const canvas = initializeFabric({
