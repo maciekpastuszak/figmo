@@ -21,7 +21,13 @@ export default function Page() {
     name: '',
     value: '',
     icon: ''
-  })
+  });
+
+  const handleActiveElement = (elem: ActiveElement) => {
+    setActiveElement(elem);
+
+    selectedShapeRef.current = elem?.value as string;
+  }
 
   useEffect(() => {
     const canvas = initializeFabric({
@@ -46,7 +52,10 @@ export default function Page() {
 
   return (
     <main className="h-screen overflow-hidden">
-        <Navbar />
+        <Navbar 
+          activeElement={activeElement}
+          handleActiveElement={handleActiveElement}
+        />
       <section className="flex h-full flex-row">
         <LeftSidebar />
         <Live canvasRef={canvasRef}/>
