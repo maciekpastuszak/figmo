@@ -29,6 +29,8 @@ export default function Page() {
     shapeData.objectId = objectId;
 
     const canvasObjects = storage.get('canvasObjects');
+
+    canvasObjects.set(objectId, shapeData);
   }, []);
   
   const [activeElement, setActiveElement] = useState<ActiveElement>({
