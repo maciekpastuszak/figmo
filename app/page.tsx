@@ -21,7 +21,14 @@ export default function Page() {
   const canvasObjects = useStorage((root) => root.canvasObjects)
   
   const syncShapeInStorage = useMutation(({ storage }, object) => {
+    if(!object) return;
 
+    const { objectId } = object;
+
+    const shapeData = object.toJSON();
+    shapeData.objectId = objectId;
+
+    const canvasObjects = storage.get('canvasObjects');
   }, []);
   
   const [activeElement, setActiveElement] = useState<ActiveElement>({
