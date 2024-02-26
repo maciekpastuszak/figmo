@@ -72,6 +72,17 @@ export default function Page() {
       })
     })
 
+    canvas.on("mouse:up", (options) => {
+      handleCanvaseMouseUp({
+        options,
+        canvas,
+        isDrawing,
+        shapeRef,
+        selectedShapeRef,
+        syncShapeInStorage,
+        setActiveElement,
+      })
+    })
       window.addEventListener("resize", () => {
         handleResize({ fabricRef })
       })
