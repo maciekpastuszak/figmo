@@ -8,7 +8,7 @@ import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
 import { useEffect, useRef, useState } from "react";
 import { CustomFabricObject, ActiveElement } from "@/types/type";
-import { handleCanvasMouseDown, handleCanvaseMouseMove, handleResize, initializeFabric } from "@/lib/canvas";
+import { handleCanvasMouseDown, handleCanvasMouseMove, handleCanvasMouseUp, handleResize, initializeFabric } from "@/lib/canvas";
 import { useMutation, useStorage } from "@/liveblocks.config";
 
 export default function Page() {
@@ -62,7 +62,7 @@ export default function Page() {
     })
 
     canvas.on("mouse:move", (options) => {
-      handleCanvaseMouseMove({
+      handleCanvasMouseMove({
         options,
         canvas,
         isDrawing,
@@ -73,7 +73,7 @@ export default function Page() {
     })
 
     canvas.on("mouse:up", (options) => {
-      handleCanvaseMouseUp({
+      handleCanvasMouseUp({
         options,
         canvas,
         isDrawing,
