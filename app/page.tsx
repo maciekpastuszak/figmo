@@ -17,6 +17,7 @@ export default function Page() {
   const isDrawing = useRef(false);
   const shapeRef = useRef<fabric.Object | null>(null);
   const selectedShapeRef = useRef<string | null>('rectangle');
+  const activeObjectRef = useRef<fabric.Object | null>(null)
 
   const canvasObjects = useStorage((root) => root.canvasObjects)
   
@@ -74,13 +75,13 @@ export default function Page() {
 
     canvas.on("mouse:up", (options) => {
       handleCanvasMouseUp({
-        options,
         canvas,
         isDrawing,
         shapeRef,
         selectedShapeRef,
         syncShapeInStorage,
         setActiveElement,
+        activeObjectRef
       })
     })
       window.addEventListener("resize", () => {
