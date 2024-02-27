@@ -53,6 +53,10 @@ export default function Page() {
     return canvasObjects.size === 0;
   }, [])
 
+  const deleteShapeFromStorage = useMutation(({ storage }, objectId) => {
+    
+  })
+
   const handleActiveElement = (elem: ActiveElement) => {
     setActiveElement(elem);
 
@@ -62,6 +66,8 @@ export default function Page() {
         fabricRef.current?.clear();
         setActiveElement(defaultNavElement)
         break;
+      case: 'delete':
+        handleDelete(fabricRef.current as any, deleteShapeFromStorage)
     
       default:
         break;
