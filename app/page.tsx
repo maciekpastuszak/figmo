@@ -8,7 +8,7 @@ import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
 import { useEffect, useRef, useState } from "react";
 import { CustomFabricObject, ActiveElement } from "@/types/type";
-import { handleCanvasMouseDown, handleCanvasMouseMove, handleCanvasMouseUp, handleResize, initializeFabric } from "@/lib/canvas";
+import { handleCanvasMouseDown, handleCanvasMouseMove, handleCanvasMouseUp, handleResize, initializeFabric, renderCanvas } from "@/lib/canvas";
 import { useMutation, useStorage } from "@/liveblocks.config";
 
 export default function Page() {
@@ -88,6 +88,14 @@ export default function Page() {
         handleResize({ fabricRef })
       })
   }, [])
+
+  useEffect(() => {
+    renderCanvas({
+      fabricRef,
+      canvasObjects,
+      activeObjectRef
+    })
+  }, [canvasObjects])
 
   return (
     <main className="h-screen overflow-hidden">
