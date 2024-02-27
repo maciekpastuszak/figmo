@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import { CustomFabricObject, ActiveElement } from "@/types/type";
 import { handleCanvasMouseDown, handleCanvasMouseMove, handleCanvasMouseUp, handleCanvasObjectModified, handleResize, initializeFabric, renderCanvas } from "@/lib/canvas";
 import { useMutation, useStorage } from "@/liveblocks.config";
+import { defaultNavElement } from "@/constants";
 
 export default function Page() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -57,7 +58,9 @@ export default function Page() {
 
     switch (elem?.value) {
       case 'reset':
-        deleteAllShapes()
+        deleteAllShapes();
+        fabricRef.current?.clear();
+        setActiveElement(defaultNavElement)
         break;
     
       default:
