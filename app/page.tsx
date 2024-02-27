@@ -45,7 +45,7 @@ export default function Page() {
 
     if(!canvasObjects || canvasObjects.size === 0) return true;
 
-    for (const [key, value] of canvasObjects.entreis()) {
+    for (const [key, value] of canvasObjects.entries()) {
       canvasObjects.delete(key)
     }
 
