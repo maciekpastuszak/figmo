@@ -40,8 +40,19 @@ export default function Page() {
     icon: ''
   });
 
+  
+
   const handleActiveElement = (elem: ActiveElement) => {
     setActiveElement(elem);
+
+    switch (elem?.value) {
+      case 'reset':
+        deleteAllShapes()
+        break;
+    
+      default:
+        break;
+    }
 
     selectedShapeRef.current = elem?.value as string;
   }
