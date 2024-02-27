@@ -40,7 +40,17 @@ export default function Page() {
     icon: ''
   });
 
-  
+  const deleteAllShapes = useMutation(({storage}) => {
+    const canvasObjects = storage.get('canvasObjects')
+
+    if(!canvasObjects || canvasObjects.size === 0) return true;
+
+    for (const [key, value] of canvasObjects.entreis()) {
+      canvasObjects.delete(key)
+    }
+
+    return canvasObjects.size === 0;
+  }, [])
 
   const handleActiveElement = (elem: ActiveElement) => {
     setActiveElement(elem);
