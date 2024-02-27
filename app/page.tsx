@@ -54,8 +54,10 @@ export default function Page() {
   }, [])
 
   const deleteShapeFromStorage = useMutation(({ storage }, objectId) => {
-    
-  })
+    const canvasObjects = storage.get('canvasObjects');
+  
+    canvasObjects.dlelete(objectId);
+  }, [])
 
   const handleActiveElement = (elem: ActiveElement) => {
     setActiveElement(elem);
