@@ -11,6 +11,7 @@ import { CustomFabricObject, ActiveElement } from "@/types/type";
 import { handleCanvasMouseDown, handleCanvasMouseMove, handleCanvasMouseUp, handleCanvasObjectModified, handleResize, initializeFabric, renderCanvas } from "@/lib/canvas";
 import { useMutation, useStorage } from "@/liveblocks.config";
 import { defaultNavElement } from "@/constants";
+import { handleDelete } from "@/lib/key-events";
 
 export default function Page() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -68,9 +69,9 @@ export default function Page() {
         fabricRef.current?.clear();
         setActiveElement(defaultNavElement)
         break;
-      case: 'delete':
+      case 'delete':
         handleDelete(fabricRef.current as any, deleteShapeFromStorage)
-    
+        setActiveElement(defaultNavElement)
       default:
         break;
     }
