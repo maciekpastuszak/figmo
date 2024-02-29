@@ -75,9 +75,10 @@ export default function Page() {
         break;
       case 'delete':
         handleDelete(fabricRef.current as any, deleteShapeFromStorage)
-        setActiveElement(defaultNavElement)
+        setActiveElement(defaultNavElement);
+        break;
       case 'image':
-        imageInputRef.current?.click
+        imageInputRef.current?.click(),
         isDrawing.current = false;
         if(fabricRef.current){
           fabricRef.current.isDrawingMode = false;
