@@ -12,6 +12,7 @@ import { handleCanvasMouseDown, handleCanvasMouseMove, handleCanvasMouseUp, hand
 import { useMutation, useRedo, useStorage, useUndo } from "@/liveblocks.config";
 import { defaultNavElement } from "@/constants";
 import { handleDelete, handleKeyDown } from "@/lib/key-events";
+import { handleImageUpload } from "@/lib/shapes";
 
 export default function Page() {
 
