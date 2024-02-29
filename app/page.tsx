@@ -23,7 +23,7 @@ export default function Page() {
   const shapeRef = useRef<fabric.Object | null>(null);
   const selectedShapeRef = useRef<string | null>(null);
   const activeObjectRef = useRef<fabric.Object | null>(null)
-
+  const imageInputRef = useRef<HTMLInputElement>(null);
   const canvasObjects = useStorage((root) => root.canvasObjects)
   
   const syncShapeInStorage = useMutation(({ storage }, object) => {
@@ -75,6 +75,13 @@ export default function Page() {
       case 'delete':
         handleDelete(fabricRef.current as any, deleteShapeFromStorage)
         setActiveElement(defaultNavElement)
+      case 'image':
+        imageInputRef.current?.click
+        isDrawing.current = false;
+        if(fabricRef.current){
+          fabricRef.current.isDrawingMode = false;
+        }
+        break
       default:
         break;
     }
