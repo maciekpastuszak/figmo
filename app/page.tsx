@@ -26,7 +26,7 @@ export default function Page() {
   const activeObjectRef = useRef<fabric.Object | null>(null)
   const imageInputRef = useRef<HTMLInputElement>(null);
   const canvasObjects = useStorage((root) => root.canvasObjects);
-  const isEditingRef = useRef(null);
+  const isEditingRef = useRef(false);
   
   const syncShapeInStorage = useMutation(({ storage }, object) => {
     if(!object) return;
@@ -141,7 +141,7 @@ export default function Page() {
     canvas.on("selection:created", (options: any) => {
       handleCanvasSelectionCreated({
         options,
-        inEditingRef,
+        isEditingRef,
         setElementAttributes,
       })
     })
