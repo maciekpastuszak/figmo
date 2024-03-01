@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
 import { useEffect, useRef, useState } from "react";
-import { CustomFabricObject, ActiveElement } from "@/types/type";
+import { CustomFabricObject, ActiveElement, Attributes } from "@/types/type";
 import { handleCanvasMouseDown, handleCanvasMouseMove, handleCanvasMouseUp, handleCanvasObjectModified, handleCanvasSelectionCreated, handleResize, initializeFabric, renderCanvas } from "@/lib/canvas";
 import { useMutation, useRedo, useStorage, useUndo } from "@/liveblocks.config";
 import { defaultNavElement } from "@/constants";
@@ -27,6 +27,16 @@ export default function Page() {
   const imageInputRef = useRef<HTMLInputElement>(null);
   const canvasObjects = useStorage((root) => root.canvasObjects);
   const isEditingRef = useRef(false);
+  
+  const [setElementAttributes, setSetElementAttributes] = useState<Attributes>({
+    width: '',
+    height: '',
+    fontSize: '',
+    fontFamily: '',
+    fontWeight: '',
+    fill: '#aabbcc',
+    stroke: '#aabbcc',
+  })
   
   const syncShapeInStorage = useMutation(({ storage }, object) => {
     if(!object) return;
