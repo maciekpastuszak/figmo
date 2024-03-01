@@ -28,7 +28,7 @@ export default function Page() {
   const canvasObjects = useStorage((root) => root.canvasObjects);
   const isEditingRef = useRef(false);
   
-  const [setElementAttributes, setSetElementAttributes] = useState<Attributes>({
+  const [elementAttributes, setSetElementAttributes] = useState<Attributes>({
     width: '',
     height: '',
     fontSize: '',
@@ -204,7 +204,14 @@ export default function Page() {
       <section className="flex h-full flex-row">
         <LeftSidebar allShapes={Array.from(canvasObjects)}/>
         <Live canvasRef={canvasRef}/>
-        <RightSidebar />
+        <RightSidebar 
+          elementAttributes={elementAttributes}
+          setElementAttributes={setSetElementAttributes}
+          fabricRef={fabricRef}
+          isEditingRef={isEditingRef}
+          activeObjectRef={activeObjectRef}
+          syncShapeInStorage={syncShapeInStorage}
+        />
       </section>
     </main>
   );
