@@ -4,6 +4,7 @@ import Text from './settings/Text'
 import Color from './settings/Color'
 import Export from './settings/Export'
 import { RightSidebarProps } from '@/types/type'
+import { modifyShape } from '@/lib/shapes'
 
 const RightSidebar = ({
   elementAttributes,
@@ -21,7 +22,11 @@ const RightSidebar = ({
     }))
 
     modifyShape({
-      canvas: fabricRef.current as fabric
+      canvas: fabricRef.current as fabric.Canvas,
+      property,
+      value,
+      activeObjectRef,
+      syncShapeInStorage
     })
   }
 
