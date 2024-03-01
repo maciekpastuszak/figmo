@@ -8,7 +8,7 @@ import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
 import { useEffect, useRef, useState } from "react";
 import { CustomFabricObject, ActiveElement } from "@/types/type";
-import { handleCanvasMouseDown, handleCanvasMouseMove, handleCanvasMouseUp, handleCanvasObjectModified, handleResize, initializeFabric, renderCanvas } from "@/lib/canvas";
+import { handleCanvasMouseDown, handleCanvasMouseMove, handleCanvasMouseUp, handleCanvasObjectModified, handleCanvasSelectionCreated, handleResize, initializeFabric, renderCanvas } from "@/lib/canvas";
 import { useMutation, useRedo, useStorage, useUndo } from "@/liveblocks.config";
 import { defaultNavElement } from "@/constants";
 import { handleDelete, handleKeyDown } from "@/lib/key-events";
@@ -25,7 +25,8 @@ export default function Page() {
   const selectedShapeRef = useRef<string | null>(null);
   const activeObjectRef = useRef<fabric.Object | null>(null)
   const imageInputRef = useRef<HTMLInputElement>(null);
-  const canvasObjects = useStorage((root) => root.canvasObjects)
+  const canvasObjects = useStorage((root) => root.canvasObjects);
+  const isEditingRef = useRef(null);
   
   const syncShapeInStorage = useMutation(({ storage }, object) => {
     if(!object) return;
@@ -134,6 +135,14 @@ export default function Page() {
       handleCanvasObjectModified({
         options,
         syncShapeInStorage
+      })
+    })
+
+    canvas.on("selection:created", (options: any) => {
+      handleCanvasSelectionCreated({
+        options,
+        inEditingRef,
+        setElementAttributes,
       })
     })
 
