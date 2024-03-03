@@ -39,6 +39,7 @@ const RightSidebar = ({
         width={elementAttributes.width}
         height={elementAttributes.height}
         handleInputChange={handleInputChange}
+        isEditingRef={isEditingRef}
        />
        <Text />
        <Color />
