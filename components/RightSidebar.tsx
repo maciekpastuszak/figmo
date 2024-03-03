@@ -15,6 +15,7 @@ const RightSidebar = ({
   syncShapeInStorage
 }: RightSidebarProps) => {
   const colorInputRef = useRef(null);
+  const strokeInputRef = useRef(null);
 
   const handleInputChange = (property: string, value: string) => {
     if(!isEditingRef.current) isEditingRef.current = true;
@@ -56,7 +57,13 @@ const RightSidebar = ({
         placeholder='color'
         handleInputChange={handleInputChange}
        />
-       <Color />
+       <Color 
+        inputRef={strokeInputRef}
+        attribute={elementAttributes.stroke}
+        attributeType='stroke'
+        placeholder='stroke'
+        handleInputChange={handleInputChange}
+       />
        <Export />
     </section>
   )
