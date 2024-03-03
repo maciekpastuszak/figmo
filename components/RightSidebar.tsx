@@ -51,6 +51,10 @@ const RightSidebar = ({
        />
        <Color 
         inputRef={colorInputRef}
+        attribute={elementAttributes.fill}
+        attributeType='fill'
+        placeholder='color'
+        handleInputChange={handleInputChange}
        />
        <Color />
        <Export />
