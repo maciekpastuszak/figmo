@@ -28,7 +28,7 @@ export default function Page() {
   const canvasObjects = useStorage((root) => root.canvasObjects);
   const isEditingRef = useRef(false);
   
-  const [elementAttributes, setSetElementAttributes] = useState<Attributes>({
+  const [elementAttributes, setElementAttributes] = useState<Attributes>({
     width: '',
     height: '',
     fontSize: '',
