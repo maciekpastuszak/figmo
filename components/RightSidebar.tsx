@@ -14,7 +14,7 @@ const RightSidebar = ({
   isEditingRef,
   syncShapeInStorage
 }: RightSidebarProps) => {
-  const handleInputchange = (property: string, value: string) => {
+  const handleInputChange = (property: string, value: string) => {
     if(!isEditingRef.current) isEditingRef.current = true;
 
     setElementAttributes((prev) => ({
