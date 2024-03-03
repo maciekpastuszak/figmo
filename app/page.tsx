@@ -206,7 +206,7 @@ export default function Page() {
         <Live canvasRef={canvasRef}/>
         <RightSidebar 
           elementAttributes={elementAttributes}
-          setElementAttributes={setSetElementAttributes}
+          setElementAttributes={setElementAttributes}
           fabricRef={fabricRef}
           isEditingRef={isEditingRef}
           activeObjectRef={activeObjectRef}
