@@ -1,6 +1,7 @@
 "use client";
 
-import { useThreads } from "./liveblocks.config";
+
+import { useThreads } from "@/liveblocks.config";
 import { Composer, Thread } from "@liveblocks/react-comments";
 
 export function CollaborativeApp() {
