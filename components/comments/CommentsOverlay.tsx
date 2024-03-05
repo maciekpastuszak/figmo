@@ -4,7 +4,7 @@
 import { useThreads } from "@/liveblocks.config";
 import { Composer, Thread } from "@liveblocks/react-comments";
 
-export function CollaborativeApp() {
+export function CommentsOverlay() {
   const { threads } = useThreads();
 
   return (
