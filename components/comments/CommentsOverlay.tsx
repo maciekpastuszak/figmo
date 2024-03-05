@@ -12,7 +12,7 @@ export function CommentsOverlay() {
       {threads.map((thread) => (
         <Thread key={thread.id} thread={thread} />
       ))}
-      <Composer />
+      {/* <Composer /> */}
     </div>
   );
 }
