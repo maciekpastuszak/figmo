@@ -147,7 +147,7 @@ const Live = ({ canvasRef }: Props) => {
       onPointerLeave={handlePointerLeave}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      className="relative h-[100vh] w-full flex justify-center items-center text-center"
+      className="relative h-[100vh] w-full flex flex-1 justify-center items-center text-center"
     >
      <canvas ref={canvasRef} />
 
