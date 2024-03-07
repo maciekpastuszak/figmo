@@ -155,7 +155,7 @@ const Live = ({ canvasRef }: Props) => {
       <ContextMenuItem>Team</ContextMenuItem>
       <ContextMenuItem>Subscription</ContextMenuItem>
     </ContextMenuContent> */}
-      <div
+      <ContextMenuTrigger
         id="canvas"
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
@@ -193,7 +193,8 @@ const Live = ({ canvasRef }: Props) => {
         <LiveCursors others={others}/>
 
         <Comments />
-      </div>
+      </ContextMenuTrigger>
+      
     </ContextMenu>
 
   )
