@@ -147,46 +147,55 @@ const Live = ({ canvasRef }: Props) => {
   }, []);
 
   return (
-    
-    <div
-      id="canvas"
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
-      onPointerDown={handlePointerDown}
-      onPointerUp={handlePointerUp}
-      className="relative h-[100vh] w-full flex flex-1 justify-center items-center text-center"
-    >
-     <canvas ref={canvasRef} />
+    <ContextMenu>
+    {/* <ContextMenuTrigger>Right click</ContextMenuTrigger>
+    <ContextMenuContent>
+      <ContextMenuItem>Profile</ContextMenuItem>
+      <ContextMenuItem>Billing</ContextMenuItem>
+      <ContextMenuItem>Team</ContextMenuItem>
+      <ContextMenuItem>Subscription</ContextMenuItem>
+    </ContextMenuContent> */}
+      <div
+        id="canvas"
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        className="relative h-[100vh] w-full flex flex-1 justify-center items-center text-center"
+      >
+      <canvas ref={canvasRef} />
 
-      {reaction.map((r) => (
-        <FlyingReaction 
-          key={r.timestamp.toString()}
-          x={r.point.x}
-          y={r.point.y}
-          timestamp={r.timestamp}
-          value={r.value}
-        />
-      ))}
-      
-      {cursor && (
-        <CursorChat 
-          cursor={cursor}
-          cursorState={cursorState}
-          setCursorState={setCursorState}
-          updateMyPresence={updateMyPresence}
-        />
-      )}
+        {reaction.map((r) => (
+          <FlyingReaction 
+            key={r.timestamp.toString()}
+            x={r.point.x}
+            y={r.point.y}
+            timestamp={r.timestamp}
+            value={r.value}
+          />
+        ))}
+        
+        {cursor && (
+          <CursorChat 
+            cursor={cursor}
+            cursorState={cursorState}
+            setCursorState={setCursorState}
+            updateMyPresence={updateMyPresence}
+          />
+        )}
 
-      {cursorState.mode === CursorMode.ReactionSelector && (
-        <ReactionSelector 
-          setReaction={setReactions}
-        />
-      )}
+        {cursorState.mode === CursorMode.ReactionSelector && (
+          <ReactionSelector 
+            setReaction={setReactions}
+          />
+        )}
 
-      <LiveCursors others={others}/>
+        <LiveCursors others={others}/>
 
-      <Comments />
-    </div>
+        <Comments />
+      </div>
+    </ContextMenu>
+
   )
 }
 
