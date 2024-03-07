@@ -7,6 +7,12 @@ import ReactionSelector from "./reaction/ReactionButton";
 import FlyingReaction from "./reaction/FlyingReaction";
 import useInterval from "@/hooks/useInterval";
 import { Comments } from "./comments/Comments";
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu"
 
 
 type Props = {
@@ -141,6 +147,7 @@ const Live = ({ canvasRef }: Props) => {
   }, []);
 
   return (
+    
     <div
       id="canvas"
       onPointerMove={handlePointerMove}
