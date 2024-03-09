@@ -13,6 +13,7 @@ import {
   ContextMenuItem,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
+import { shortcuts } from "@/constants";
 
 
 type Props = {
@@ -194,7 +195,13 @@ const Live = ({ canvasRef }: Props) => {
 
         <Comments />
       </ContextMenuTrigger>
-      
+      <ContextMenuContent className="right-menu-content">
+          {shortcuts.map((item) => (
+            <ContextMenuItem>
+              <p>{item.name}</p>
+            </ContextMenuItem>
+          ))}
+      </ContextMenuContent>
     </ContextMenu>
 
   )
