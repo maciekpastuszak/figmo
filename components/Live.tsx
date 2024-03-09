@@ -199,6 +199,7 @@ const Live = ({ canvasRef }: Props) => {
           {shortcuts.map((item) => (
             <ContextMenuItem key={item.key}>
               <p>{item.name}</p>
+              <p className="text-xs text-primary-grey-300">{item.shortcut}</p>
             </ContextMenuItem>
           ))}
       </ContextMenuContent>
