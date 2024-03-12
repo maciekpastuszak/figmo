@@ -20,7 +20,7 @@ type Props = {
   canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
 }
 
-const Live = ({ canvasRef }: Props) => {
+const Live = ({ canvasRef, undo, redo }: Props) => {
   const others = useOthers();
   const [{ cursor }, updateMyPresence] = useMyPresence() as any;
 
@@ -156,6 +156,8 @@ const Live = ({ canvasRef }: Props) => {
             message: '',
           })
         break;
+      case 'Undo':
+
     
       default:
         break;
