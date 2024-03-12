@@ -18,6 +18,8 @@ import { shortcuts } from "@/constants";
 
 type Props = {
   canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
+  undo: () => void;
+  redo: () => void;
 }
 
 const Live = ({ canvasRef, undo, redo }: Props) => {
