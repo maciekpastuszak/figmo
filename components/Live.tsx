@@ -212,7 +212,7 @@ const Live = ({ canvasRef }: Props) => {
       </ContextMenuTrigger>
       <ContextMenuContent className="right-menu-content">
           {shortcuts.map((item) => (
-            <ContextMenuItem key={item.key} onClick={handleContextMenuClick(item.name)}>
+            <ContextMenuItem key={item.key} onClick={() => handleContextMenuClick(item.name)}>
               <p>{item.name}</p>
               <p className="text-xs text-primary-grey-300">{item.shortcut}</p>
             </ContextMenuItem>
