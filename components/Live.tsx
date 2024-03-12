@@ -147,6 +147,21 @@ const Live = ({ canvasRef }: Props) => {
     setCursorState({ mode: CursorMode.Reaction, reaction, isPressed: false });
   }, []);
 
+  const handleContextMenuClick = useCallback((key: string) => {
+    switch (key) {
+      case 'Chat':
+          setCursorState({
+            mode: CursorMode.Chat,
+            previousMessage: null,
+            message: '',
+          })
+        break;
+    
+      default:
+        break;
+    }
+  }, [])
+
   return (
     <ContextMenu>
     {/* <ContextMenuTrigger>Right click</ContextMenuTrigger>
@@ -197,7 +212,7 @@ const Live = ({ canvasRef }: Props) => {
       </ContextMenuTrigger>
       <ContextMenuContent className="right-menu-content">
           {shortcuts.map((item) => (
-            <ContextMenuItem key={item.key}>
+            <ContextMenuItem key={item.key} onClick={handleContextMenuClick(item.name)}>
               <p>{item.name}</p>
               <p className="text-xs text-primary-grey-300">{item.shortcut}</p>
             </ContextMenuItem>
