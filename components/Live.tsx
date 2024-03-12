@@ -152,15 +152,18 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
   const handleContextMenuClick = useCallback((key: string) => {
     switch (key) {
       case 'Chat':
-          setCursorState({
-            mode: CursorMode.Chat,
-            previousMessage: null,
-            message: '',
-          })
+        setCursorState({
+          mode: CursorMode.Chat,
+          previousMessage: null,
+          message: '',
+        })
         break;
       case 'Undo':
-
-    
+        undo();
+        break;
+      case 'Redo':
+        redo();
+        break;
       default:
         break;
     }
