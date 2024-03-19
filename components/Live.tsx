@@ -158,6 +158,10 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
           message: '',
         })
         break;
+      case "Reactions":
+        setCursorState({
+          mode: CursorMode.ReactionSelector,
+        })
       case 'Undo':
         undo();
         break;
