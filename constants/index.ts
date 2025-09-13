@@ -3,32 +3,32 @@ export const COLORS = ["#DC2626", "#D97706", "#059669", "#7C3AED", "#DB2777"];
 export const shapeElements = [
   {
     icon: "/assets/rectangle.svg",
-    name: "Rectangle",
+    name: "Prostokōnt",
     value: "rectangle",
   },
   {
     icon: "/assets/circle.svg",
-    name: "Circle",
+    name: "Kōłko",
     value: "circle",
   },
   {
     icon: "/assets/triangle.svg",
-    name: "Triangle",
+    name: "Tryjōnt",
     value: "triangle",
   },
   {
     icon: "/assets/line.svg",
-    name: "Line",
+    name: "Linja",
     value: "line",
   },
   {
     icon: "/assets/image.svg",
-    name: "Image",
+    name: "Ôbrŏzek",
     value: "image",
   },
   {
     icon: "/assets/freeform.svg",
-    name: "Free Drawing",
+    name: "Swobodne Bazgroły",
     value: "freeform",
   },
 ];
@@ -36,45 +36,45 @@ export const shapeElements = [
 export const navElements = [
   {
     icon: "/assets/select.svg",
-    name: "Select",
+    name: "Wybiyr",
     value: "select",
   },
   {
     icon: "/assets/rectangle.svg",
-    name: "Rectangle",
+    name: "Prostokōnt",
     value: shapeElements,
   },
   {
     icon: "/assets/text.svg",
     value: "text",
-    name: "Text",
+    name: "Tekst",
   },
   {
     icon: "/assets/delete.svg",
     value: "delete",
-    name: "Delete",
+    name: "Skasuj",
   },
   {
     icon: "/assets/reset.svg",
     value: "reset",
-    name: "Reset",
+    name: "Zresetuj",
   },
   {
     icon: "/assets/comments.svg",
     value: "comments",
-    name: "Comments",
+    name: "Kōmyntŏrze",
   },
 ];
 
 export const defaultNavElement = {
   icon: "/assets/select.svg",
-  name: "Select",
+  name: "Wybiyr",
   value: "select",
 };
 
 export const directionOptions = [
-  { label: "Bring to Front", value: "front", icon: "/assets/front.svg" },
-  { label: "Send to Back", value: "back", icon: "/assets/back.svg" },
+  { label: "Daj na Wiyrch", value: "front", icon: "/assets/front.svg" },
+  { label: "Poślij na Spodek", value: "back", icon: "/assets/back.svg" },
 ];
 
 export const fontFamilyOptions = [
