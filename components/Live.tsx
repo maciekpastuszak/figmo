@@ -117,7 +117,7 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
         setCursorState({
           mode: CursorMode.Chat,
           previousMessage: null,
-          message: ''
+          message: '',
         })
       } else if (e.key === 'Escape') {
         updateMyPresence({ message: ''})
